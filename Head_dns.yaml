@@ -1,0 +1,27 @@
+port: 7890
+socks-port: 7891
+redir-port: 7892
+allow-lan: true
+mode: Rule
+log-level: info
+external-controller: 127.0.0.1:9090
+experimental:
+  ignore-resolve-fail: true
+dns:
+  enable: true
+  ipv6: false  
+  nameserver:
+    - 223.5.5.5
+    - 119.29.29.29
+    - 8.8.8.8
+    - 1.1.1.1
+    - tls://13800000000.rubyfish.cn:853
+  fallback:
+    - 8.8.8.8
+    - 1.1.1.1 
+    - tls://dns.google:853
+    - tls://13800000000.rubyfish.cn:853
+fallback-filter:
+geoip: true # 默认
+ipcidr: # 在这个网段内的 IP 地址会被考虑为被污染的 IP
+  - 240.0.0.0/4
